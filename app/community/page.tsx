@@ -1,0 +1,69 @@
+import type { Metadata } from "next";
+import { Card, Container, Eyebrow, SectionHeading, VerificationBadge } from "@/components/ui";
+import ScrollReveal from "@/components/ScrollReveal";
+import { communityChannels } from "@/data/community";
+
+export const metadata: Metadata = {
+  title: "Community",
+  description: "Discord, YouTube, Twitch, and the wider Sygmaulf and Nomads Province community.",
+};
+
+export default function CommunityPage() {
+  return (
+    <>
+      <section className="border-b border-line py-24">
+        <Container>
+          <Eyebrow>Community</Eyebrow>
+          <h1 className="font-display mt-4 max-w-4xl text-6xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl">
+            Built together.
+          </h1>
+          <p className="mt-6 max-w-xl text-lg text-ink-dim">
+            Players, creators, and organizers connected across Discord, streaming platforms, and
+            in-person communities.
+          </p>
+        </Container>
+      </section>
+
+      <section className="py-24">
+        <Container>
+          <ScrollReveal>
+            <SectionHeading eyebrow="Channels" title="Where The Community Lives" />
+          </ScrollReveal>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {communityChannels.map((channel, i) => (
+              <ScrollReveal key={channel.id} delay={i * 50}>
+                <Card className="flex h-full flex-col justify-between">
+                  <div>
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-display text-2xl font-bold uppercase tracking-tight">
+                        {channel.label}
+                      </h3>
+                      <VerificationBadge status={channel.verificationStatus} />
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-ink-dim">
+                      {channel.description}
+                    </p>
+                  </div>
+                  {channel.url ? (
+                    <a
+                      href={channel.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex w-fit items-center gap-1 text-xs font-semibold uppercase tracking-wide text-accent hover:underline"
+                    >
+                      Join / Visit →
+                    </a>
+                  ) : (
+                    <span className="mt-6 block text-xs font-semibold uppercase tracking-wide text-ink-faint">
+                      Link coming soon
+                    </span>
+                  )}
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}
