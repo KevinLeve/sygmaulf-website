@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Button, Container, Eyebrow, SectionHeading } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import CredibilityStrip from "@/components/CredibilityStrip";
@@ -43,28 +44,43 @@ export default function HomePage() {
           />
         </div>
 
-        <Container className="relative flex min-h-[86vh] flex-col justify-center py-24">
-          <Eyebrow>Player · Creator · Host · Builder</Eyebrow>
-          <h1 className="font-display mt-4 text-[16vw] font-extrabold uppercase leading-[0.85] tracking-tight sm:text-[10vw] lg:text-[8.5rem]">
-            Sygmaulf
-          </h1>
-          <p className="font-display mt-2 text-2xl font-bold uppercase tracking-tight text-ink-dim sm:text-3xl">
-            Gaming. Media. Community.
-          </p>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-dim sm:text-lg">
-            Competitive gaming, creator-led content and community experiences connecting brands
-            with gaming audiences.
-          </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button href="/about#achievements" variant="primary">
-              Explore Career →
-            </Button>
-            <Button href="/work-with-sygmaulf" variant="outline">
-              Work With Sygmaulf →
-            </Button>
-            <Button href="/community" variant="ghost">
-              Explore Community →
-            </Button>
+        <Container className="relative grid min-h-[86vh] items-center gap-12 py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
+          <div className="order-2 lg:order-1">
+            <Eyebrow>Player · Creator · Host · Builder</Eyebrow>
+            <h1 className="font-display mt-4 text-7xl font-extrabold uppercase leading-[0.85] tracking-tight sm:text-8xl lg:text-[7rem]">
+              Sygmaulf
+            </h1>
+            <p className="font-display mt-2 text-2xl font-bold uppercase tracking-tight text-ink-dim sm:text-3xl">
+              Gaming. Media. Community.
+            </p>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-dim sm:text-lg">
+              Competitive gaming, creator-led content and community experiences connecting brands
+              with gaming audiences.
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Button href="/about#achievements" variant="primary">
+                Explore Career →
+              </Button>
+              <Button href="/work-with-sygmaulf" variant="outline">
+                Work With Sygmaulf →
+              </Button>
+              <Button href="/community" variant="ghost">
+                Explore Community →
+              </Button>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden border border-line lg:max-w-none">
+              <Image
+                src="/images/personal/sygmaulf-hero-portrait.jpg"
+                alt="Sygmaulf, Indian gaming creator and esports competitor, studio portrait"
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 90vw, 45vw"
+              />
+            </div>
           </div>
         </Container>
       </section>

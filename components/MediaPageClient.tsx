@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Container, Eyebrow, SectionHeading } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import MediaCard from "@/components/MediaCard";
@@ -77,28 +78,39 @@ export default function MediaPageClient() {
       </section>
 
       <section className="border-t border-line py-24">
-        <Container className="max-w-2xl">
-          <Eyebrow>GGEZ</Eyebrow>
-          <h2 className="font-display mt-3 text-4xl font-bold uppercase leading-[0.95] tracking-tight sm:text-5xl">
-            Gaming conversations beyond the match.
-          </h2>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="https://open.spotify.com/show/1M5cupcfoE61rQtvZARarV"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-line px-6 py-3 text-center text-sm font-semibold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent"
-            >
-              Listen on Spotify
-            </a>
-            <a
-              href="https://www.amazon.in/-/hi/dp/B0GHXJPQ8S"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-line px-6 py-3 text-center text-sm font-semibold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent"
-            >
-              Listen on Amazon Music
-            </a>
+        <Container className="grid items-center gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:max-w-4xl">
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden border border-line">
+            <Image
+              src="/images/personal/ggez-podcast-cover.jpg"
+              alt="GGEZ — A Gamer's Podcast, official cover art. Real talk. Raw stories. Gamer mindset. Hosted by Sygmaulf."
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 70vw, 320px"
+            />
+          </div>
+          <div>
+            <Eyebrow>GGEZ</Eyebrow>
+            <h2 className="font-display mt-3 text-4xl font-bold uppercase leading-[0.95] tracking-tight sm:text-5xl">
+              Gaming conversations beyond the match.
+            </h2>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://open.spotify.com/show/1M5cupcfoE61rQtvZARarV"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-line px-6 py-3 text-center text-sm font-semibold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent"
+              >
+                Listen on Spotify
+              </a>
+              <a
+                href="https://www.amazon.in/-/hi/dp/B0GHXJPQ8S"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-line px-6 py-3 text-center text-sm font-semibold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent"
+              >
+                Listen on Amazon Music
+              </a>
+            </div>
           </div>
         </Container>
       </section>

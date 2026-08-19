@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Button, Card, Container, Eyebrow, SectionHeading, VerificationBadge } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import PartnerLogoStrip from "@/components/PartnerLogoStrip";
@@ -31,17 +32,28 @@ export default function MediaKitPage() {
   return (
     <>
       <section className="border-b border-line py-24">
-        <Container className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <Eyebrow>Media Kit</Eyebrow>
-            <h1 className="font-display mt-4 max-w-3xl text-6xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl">
-              Media Kit
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-ink-dim">{shortBio}</p>
+        <Container className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="flex flex-col gap-8">
+            <div>
+              <Eyebrow>Media Kit</Eyebrow>
+              <h1 className="font-display mt-4 max-w-3xl text-6xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl">
+                Media Kit
+              </h1>
+              <p className="mt-6 max-w-xl text-lg text-ink-dim">{shortBio}</p>
+            </div>
+            <Button href="/media-kit" variant="outline" className="w-fit">
+              Download PDF (Coming Soon)
+            </Button>
           </div>
-          <Button href="/media-kit" variant="outline" className="w-fit">
-            Download PDF (Coming Soon)
-          </Button>
+          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden border border-line">
+            <Image
+              src="/images/personal/sygmaulf-media-kit-portrait.jpg"
+              alt="Sygmaulf, press portrait"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 80vw, 380px"
+            />
+          </div>
         </Container>
       </section>
 

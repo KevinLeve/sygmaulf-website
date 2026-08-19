@@ -15,6 +15,8 @@ export interface EventRecord {
   supportingLinks?: { label: string; url: string }[];
   referenceDocument?: string;
   description: string;
+  image?: string;
+  imageAlt?: string;
   verificationStatus: VerificationStatus;
   source: string;
   featured?: boolean;
@@ -58,6 +60,8 @@ export const events: EventRecord[] = [
     referenceDocument: "WCS_2026_India_Qualifiers.pdf",
     description:
       "Online tournament, $25,000 prize pool. Qualifiers held April 24–25, main broadcast April 26. Team INWICKTUS (captain: Sygmaulf) received a bye in Round 1 (Game 1.17) before being eliminated 0-2 by Welt Esports in Round 2 (Game 2.9).",
+    image: "/images/achievements/pokemon-unite-championship-series.jpg",
+    imageAlt: "Pokémon UNITE Championship Series logo",
     verificationStatus: "verified",
     source: "WCS_2026_India_Qualifiers.pdf",
     featured: true,
@@ -74,6 +78,8 @@ export const events: EventRecord[] = [
     referenceDocument: "HOK_Kings_Arise_Bengaluru.pdf",
     description:
       "Round of 64, Best of 3 bracket. Team Inwicktus (captain: Sygmaulf) faced Team Not in Prime on 16/03 (Game 2.14) and was eliminated.",
+    image: "/images/achievements/honor-of-kings-kings-arise-india-city-tour.jpg",
+    imageAlt: "Honor of Kings: Kings' Arise India City Tour logo",
     verificationStatus: "verified",
     source: "HOK_Kings_Arise_Bengaluru.pdf",
     featured: true,
@@ -90,6 +96,8 @@ export const events: EventRecord[] = [
     referenceDocument: "HOK_Kings_Arise_Mumbai.pdf",
     description:
       "Online qualifiers into LAN finals. Format: Phase 1 Open Qualifiers (Ro256 → Ro16, March 24), Phase 2 Group Stage (March 25), Phase 3 Playoffs (March 26), Phase 4 LAN Final (March 29).",
+    image: "/images/achievements/honor-of-kings-kings-arise-india-city-tour.jpg",
+    imageAlt: "Honor of Kings: Kings' Arise India City Tour logo",
     verificationStatus: "verified",
     source: "HOK_Kings_Arise_Mumbai.pdf",
   },
@@ -104,6 +112,8 @@ export const events: EventRecord[] = [
     referenceDocument: "HOK_CMF_2026.pdf",
     description:
       "HOKCSAC Round 1, Wild Card Entry, Day 1 (15 April 2026). Team Inwicktus was scheduled against Choke Hold (Match 18, 10:45 PM IST). A registered-team graphic was also supplied for the wider CMF South Asia Championship; treated here as tournament participation, since no further personal result was provided.",
+    image: "/images/achievements/hok-cmf-south-asia-championship-2026.jpg",
+    imageAlt: "HOK-CMF South Asia Championship 2026 registered team graphic",
     verificationStatus: "verified",
     source: "HOK_CMF_2026.pdf",
   },
@@ -118,6 +128,8 @@ export const events: EventRecord[] = [
     category: "esports",
     officialLink: "https://play.toornament.com/en_US/tournaments/2316759398554638335/participants/",
     description: "Tamil Nadu CM Trophy Esports 2025, Pokémon UNITE — competed as part of Tribe Rascals.",
+    image: "/images/achievements/tn-chief-ministers-trophy-2025.jpg",
+    imageAlt: "Tamil Nadu Chief Minister's Trophy 2025 logo",
     verificationStatus: "pending",
     source: "Client fact sheet (Aug 2026) + Toornament participant page",
   },
@@ -131,6 +143,8 @@ export const events: EventRecord[] = [
     category: "esports",
     officialLink: "https://matcherino.com/supercell/tournaments/197510",
     description: "Season 1 Qualifier for the Brawl Stars Challengers South Asia circuit.",
+    image: "/images/achievements/brawl-stars-challengers-south-asia-top-33-india.jpg",
+    imageAlt: "Brawl Stars Challengers South Asia logo",
     verificationStatus: "pending",
     source: "Client fact sheet (Aug 2026) + Matcherino tournament page",
   },
@@ -143,6 +157,8 @@ export const events: EventRecord[] = [
     role: "Competitor",
     category: "esports",
     description: "Winter Championship Series tournament. Personal placement not yet confirmed by the client.",
+    image: "/images/achievements/pokemon-unite-winter-tournament.jpg",
+    imageAlt: "Pokémon UNITE Winter Tournament logo",
     verificationStatus: "pending",
     source: "Client fact sheet (Aug 2026)",
   },
@@ -156,6 +172,8 @@ export const events: EventRecord[] = [
     category: "esports",
     officialLink: "https://challonge.com/nesc2026AGPokemonUnite",
     description: "Asian Games qualifying tournament for Pokémon UNITE.",
+    image: "/images/achievements/nesc-2026-global-esports-games.jpg",
+    imageAlt: "NESC 2026, 20th Asian Games Aichi-Nagoya 2026 logo",
     verificationStatus: "pending",
     source: "Client-supplied profile + Challonge bracket",
   },
@@ -169,6 +187,8 @@ export const events: EventRecord[] = [
     category: "esports",
     officialLink: "https://www.battlexo.com/tournaments/69ca1ad1e22c8bea6de2086f?tab=teams",
     description: "Season 4 of the iQOO Community Cup for BGMI.",
+    image: "/images/achievements/iqoo-community-cup-bgmi.jpg",
+    imageAlt: "iQOO Community Cup BGMI logo",
     verificationStatus: "pending",
     source: "Client-supplied profile + BattleXO tournament page",
   },
@@ -182,6 +202,8 @@ export const events: EventRecord[] = [
     category: "esports",
     officialLink: "https://puyopuyo-global-ranking-series.j-cg.com/",
     description: "Global ranking series for Puyo Puyo.",
+    image: "/images/achievements/puyo-puyo-grs.jpg",
+    imageAlt: "Puyo Puyo Global Ranking Series logo",
     verificationStatus: "pending",
     source: "Client-supplied profile + official tournament site",
   },
@@ -223,6 +245,8 @@ export const events: EventRecord[] = [
     ],
     description:
       "ESFI (Esports Federation of India) announcement of the Indian contingent for the BRICS Esports Championship and Global Esports Games 2026. This is national-contingent announcement coverage rather than a personal profile piece — treated accordingly.",
+    image: "/images/achievements/global-esports-games-nesc-2026.jpg",
+    imageAlt: "Global Esports Games Los Angeles 2026 / NESC 2026 logo",
     verificationStatus: "pending",
     source:
       "News18 / Khel Now / Business Standard / The Bridge / Tribune India / ThePrint / PTI (ESFI announcement coverage)",

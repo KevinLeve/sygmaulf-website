@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Button, Card, Container, Eyebrow, SectionHeading } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import AchievementCard from "@/components/AchievementCard";
@@ -29,17 +30,30 @@ export default function AboutPage() {
       </section>
 
       <section className="border-b border-line py-24">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1fr]">
+        <Container>
           <ScrollReveal>
             <SectionHeading eyebrow="Who Is Sygmaulf?" title="Professional Biography" />
           </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <div className="space-y-5 text-base leading-relaxed text-ink-dim">
-              {longBio.split("\n\n").map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-          </ScrollReveal>
+          <div className="mt-12 grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <ScrollReveal>
+              <div className="relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden border border-line">
+                <Image
+                  src="/images/personal/sygmaulf-about-portrait.jpg"
+                  alt="Sygmaulf, studio portrait"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 80vw, 380px"
+                />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <div className="space-y-5 text-base leading-relaxed text-ink-dim">
+                {longBio.split("\n\n").map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
         </Container>
       </section>
 
@@ -68,6 +82,28 @@ export default function AboutPage() {
               </ScrollReveal>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* Portrait + pull-quote break */}
+      <section className="border-b border-line py-24">
+        <Container className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <ScrollReveal>
+            <div className="relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden border border-line">
+              <Image
+                src="/images/personal/sygmaulf-about-seated.jpg"
+                alt="Sygmaulf, seated studio portrait"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 80vw, 380px"
+              />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <p className="font-display text-3xl font-bold uppercase leading-[1.05] tracking-tight sm:text-4xl">
+              &ldquo;Built around competition, creativity and community.&rdquo;
+            </p>
+          </ScrollReveal>
         </Container>
       </section>
 

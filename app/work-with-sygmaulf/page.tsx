@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Button, Container, Eyebrow, SectionHeading } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import CampaignBuilder from "@/components/CampaignBuilder";
@@ -15,15 +16,26 @@ export default function WorkWithSygmaulfPage() {
   return (
     <>
       <section className="border-b border-line py-24">
-        <Container>
-          <Eyebrow>Work With Sygmaulf</Eyebrow>
-          <h1 className="font-display mt-4 max-w-4xl text-6xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl">
-            Build a campaign people remember.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-ink-dim">
-            Connect your brand with gaming audiences through content, creators, esports and
-            experiences.
-          </p>
+        <Container className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <Eyebrow>Work With Sygmaulf</Eyebrow>
+            <h1 className="font-display mt-4 text-6xl font-extrabold uppercase leading-[0.9] tracking-tight sm:text-7xl">
+              Build a campaign people remember.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-ink-dim">
+              Connect your brand with gaming audiences through content, creators, esports and
+              experiences.
+            </p>
+          </div>
+          <div className="relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden border border-line">
+            <Image
+              src="/images/personal/sygmaulf-work-with-portrait.jpg"
+              alt="Sygmaulf, studio portrait"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 80vw, 380px"
+            />
+          </div>
         </Container>
       </section>
 
