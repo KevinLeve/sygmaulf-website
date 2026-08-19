@@ -15,35 +15,89 @@ export interface Achievement {
   year?: string;
   game?: string;
   url?: string;
+  urlLabel?: string;
+  team?: string;
   verificationStatus: VerificationStatus;
   source: string;
   featured?: boolean;
 }
 
-// All records below come directly from the client-supplied professional
-// profile. Nothing here is invented — new achievements should be added as
-// they are supplied, each tagged with a verificationStatus and a source.
+// All records below trace to either an official source document (PDF/URL,
+// tagged "verified") or the client-supplied fact sheet / WhatsApp brief
+// (tagged "pending" — self-reported, not independently confirmed).
+// Nothing here is invented. Ranking claims for CODM are preserved exactly
+// as supplied: India rank #74 (2021) and India rank #12 (2025) are kept as
+// two distinct entries rather than merged, per source instruction.
 export const achievements: Achievement[] = [
   // ---- Competitive results ----
   {
-    id: "geg26-clash-royale",
-    title: "National Runner-Up — Qualifiers",
-    description: "GEG '26 Qualifiers, Clash Royale.",
+    id: "clash-royale-india-qualifier",
+    title: "Second Runner-Up",
+    description: "Clash Royale India Qualifier.",
     category: "competitive",
-    year: "2026",
     game: "Clash Royale",
+    url: "https://play.toornament.com/en_US/tournaments/2537810745352208383/participants/",
+    urlLabel: "Toornament — Participants",
     verificationStatus: "pending",
-    source: "Client-supplied profile",
+    source: "Client fact sheet (Aug 2026)",
     featured: true,
   },
   {
-    id: "cm-trophy-2025",
-    title: "Official Participant",
-    description: "CM Trophy 2025, India.",
+    id: "codm-worlds-2025",
+    title: "India Rank #12",
+    description: "Call of Duty: Mobile World Championship 2025.",
     category: "competitive",
     year: "2025",
+    game: "Call of Duty: Mobile",
     verificationStatus: "pending",
-    source: "Client-supplied profile",
+    source: "Client fact sheet (Aug 2026)",
+    featured: true,
+  },
+  {
+    id: "codm-worlds-2021",
+    title: "India Rank #74",
+    description: "Call of Duty: Mobile World Championship 2021.",
+    category: "competitive",
+    year: "2021",
+    game: "Call of Duty: Mobile",
+    verificationStatus: "pending",
+    source: "Client fact sheet (Aug 2026)",
+    featured: true,
+  },
+  {
+    id: "brawl-stars-challengers-south-asia",
+    title: "Top 33 in India",
+    description: "Brawl Stars Challengers South Asia — Season 1 Qualifier.",
+    category: "competitive",
+    game: "Brawl Stars",
+    url: "https://matcherino.com/supercell/tournaments/197510",
+    urlLabel: "Matcherino — Tournament",
+    verificationStatus: "pending",
+    source: "Client fact sheet (Aug 2026)",
+    featured: true,
+  },
+  {
+    id: "tn-cm-trophy-2025",
+    title: "Team: Tribe Rascals",
+    description: "TN CM Trophy Esports 2025, Pokémon UNITE.",
+    category: "competitive",
+    year: "2025",
+    game: "Pokémon UNITE",
+    team: "Tribe Rascals",
+    url: "https://play.toornament.com/en_US/tournaments/2316759398554638335/participants/",
+    urlLabel: "Toornament — Participants",
+    verificationStatus: "pending",
+    source: "Client fact sheet (Aug 2026)",
+  },
+  {
+    id: "pokemon-winter-cs-26",
+    title: "Tournament Participation",
+    description: "Pokémon Winter CS '26. Personal placement not yet confirmed.",
+    category: "competitive",
+    year: "2026",
+    game: "Pokémon UNITE",
+    verificationStatus: "pending",
+    source: "Client fact sheet (Aug 2026)",
   },
   {
     id: "ggi-bgmi",
@@ -73,6 +127,8 @@ export const achievements: Achievement[] = [
     category: "competitive",
     year: "2026",
     game: "Pokémon UNITE",
+    url: "https://challonge.com/nesc2026AGPokemonUnite",
+    urlLabel: "Challonge — Bracket",
     verificationStatus: "pending",
     source: "Client-supplied profile",
   },
@@ -95,18 +151,11 @@ export const achievements: Achievement[] = [
     category: "competitive",
     year: "2026",
     game: "Pokémon UNITE",
+    url: "https://challonge.com/WCS2026INDIAQ/groups",
+    urlLabel: "Challonge — Bracket",
     verificationStatus: "verified",
     source: "WCS_2026_India_Qualifiers.pdf",
     featured: true,
-  },
-  {
-    id: "brawl-stars-sea",
-    title: "Ranked 33",
-    description: "Brawl Stars Championship, Southeast Asia.",
-    category: "competitive",
-    game: "Brawl Stars",
-    verificationStatus: "pending",
-    source: "Client-supplied profile",
   },
   {
     id: "iqoo-community-cup-s4",
@@ -114,6 +163,8 @@ export const achievements: Achievement[] = [
     description: "iQOO Community Cup Season 4, BGMI.",
     category: "competitive",
     game: "BGMI",
+    url: "https://www.battlexo.com/tournaments/69ca1ad1e22c8bea6de2086f?tab=teams",
+    urlLabel: "BattleXO — Tournament",
     verificationStatus: "pending",
     source: "Client-supplied profile",
   },
@@ -124,30 +175,13 @@ export const achievements: Achievement[] = [
     category: "competitive",
     year: "2025",
     game: "Puyo Puyo",
+    url: "https://puyopuyo-global-ranking-series.j-cg.com/",
+    urlLabel: "Official Tournament Site",
     verificationStatus: "pending",
     source: "Client-supplied profile",
-  },
-  {
-    id: "codm-world-championship",
-    title: "India Rankings — #12 (2025), #74 (2021)",
-    description: "Call of Duty: Mobile World Championship, India rankings.",
-    category: "competitive",
-    game: "Call of Duty: Mobile",
-    verificationStatus: "pending",
-    source: "Client-supplied profile",
-    featured: true,
   },
 
   // ---- Creator / industry roles ----
-  {
-    id: "krafton-pubgm",
-    title: "Official Content Creator — KRAFTON / PUBG Mobile",
-    description: "Creator code: sygmaulf.",
-    category: "brand",
-    verificationStatus: "pending",
-    source: "Client-supplied profile",
-    featured: true,
-  },
   {
     id: "epic-games-ambassador",
     title: "Epic Games Ambassador",
@@ -170,30 +204,6 @@ export const achievements: Achievement[] = [
     id: "ewc-costreamer",
     title: "Official Co-Streamer — EWC",
     description: "Esports World Cup official co-streaming talent.",
-    category: "role",
-    verificationStatus: "pending",
-    source: "Client-supplied profile",
-  },
-  {
-    id: "razer-creator",
-    title: "Razer Official Creator",
-    description: "Recognized creator partner for Razer.",
-    category: "brand",
-    verificationStatus: "pending",
-    source: "Client-supplied profile",
-  },
-  {
-    id: "activision-playtester",
-    title: "Activision Playtester",
-    description: "Invited playtester for upcoming Activision titles.",
-    category: "role",
-    verificationStatus: "pending",
-    source: "Client-supplied profile",
-  },
-  {
-    id: "playstation-beta-tester",
-    title: "PlayStation Beta Tester",
-    description: "Invited beta tester for PlayStation titles.",
     category: "role",
     verificationStatus: "pending",
     source: "Client-supplied profile",

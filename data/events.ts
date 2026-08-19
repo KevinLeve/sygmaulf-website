@@ -21,10 +21,25 @@ export interface EventRecord {
 }
 
 // Event facts below are drawn directly from the four supplied reference
-// PDFs and the WhatsApp link list. Results and terminology are preserved
-// as written in the source documents — nothing here is inferred beyond
-// what the documents state.
+// PDFs and the two rounds of client-supplied source material (WhatsApp
+// brief + fact sheet / reference screenshots). Results and terminology are
+// preserved as written in the source documents — nothing here is inferred
+// beyond what the documents state.
 export const events: EventRecord[] = [
+  {
+    id: "clash-royale-india-qualifier",
+    name: "Clash Royale India Qualifier",
+    game: "Clash Royale",
+    year: "2026",
+    result: "Second Runner-Up",
+    role: "Competitor",
+    category: "esports",
+    officialLink: "https://play.toornament.com/en_US/tournaments/2537810745352208383/participants/",
+    description: "India Qualifier for Clash Royale — finished as second runner-up.",
+    verificationStatus: "pending",
+    source: "Client fact sheet (Aug 2026) + Toornament participant page",
+    featured: true,
+  },
   {
     id: "wcs-2026-india-qualifiers",
     name: "Pokémon UNITE World Championship 2026 — India Qualifiers",
@@ -88,9 +103,48 @@ export const events: EventRecord[] = [
     category: "esports",
     referenceDocument: "HOK_CMF_2026.pdf",
     description:
-      "HOKCSAC Round 1, Wild Card Entry, Day 1 (15 April 2026). Team Inwicktus was scheduled against Choke Hold (Match 18, 10:45 PM IST).",
+      "HOKCSAC Round 1, Wild Card Entry, Day 1 (15 April 2026). Team Inwicktus was scheduled against Choke Hold (Match 18, 10:45 PM IST). A registered-team graphic was also supplied for the wider CMF South Asia Championship; treated here as tournament participation, since no further personal result was provided.",
     verificationStatus: "verified",
     source: "HOK_CMF_2026.pdf",
+  },
+  {
+    id: "tn-cm-trophy-2025",
+    name: "TN CM Trophy Esports 2025",
+    game: "Pokémon UNITE",
+    year: "2025",
+    location: "Tamil Nadu, India",
+    result: "Tournament Participation",
+    role: "Team: Tribe Rascals",
+    category: "esports",
+    officialLink: "https://play.toornament.com/en_US/tournaments/2316759398554638335/participants/",
+    description: "Tamil Nadu CM Trophy Esports 2025, Pokémon UNITE — competed as part of Tribe Rascals.",
+    verificationStatus: "pending",
+    source: "Client fact sheet (Aug 2026) + Toornament participant page",
+  },
+  {
+    id: "brawl-stars-challengers-south-asia",
+    name: "Brawl Stars Challengers South Asia — Season 1 Qualifier",
+    game: "Brawl Stars",
+    year: "2026",
+    result: "Top 33 in India",
+    role: "Competitor",
+    category: "esports",
+    officialLink: "https://matcherino.com/supercell/tournaments/197510",
+    description: "Season 1 Qualifier for the Brawl Stars Challengers South Asia circuit.",
+    verificationStatus: "pending",
+    source: "Client fact sheet (Aug 2026) + Matcherino tournament page",
+  },
+  {
+    id: "pokemon-winter-cs-26",
+    name: "Pokémon Winter CS '26",
+    game: "Pokémon UNITE",
+    year: "2026",
+    result: "Tournament Participation",
+    role: "Competitor",
+    category: "esports",
+    description: "Winter Championship Series tournament. Personal placement not yet confirmed by the client.",
+    verificationStatus: "pending",
+    source: "Client fact sheet (Aug 2026)",
   },
   {
     id: "nesc-2026-pokemon-unite",
@@ -101,15 +155,22 @@ export const events: EventRecord[] = [
     role: "Competitor",
     category: "esports",
     officialLink: "https://challonge.com/nesc2026AGPokemonUnite",
-    supportingLinks: [
-      {
-        label: "BattleXO tournament page",
-        url: "https://www.battlexo.com/tournaments/69ca1ad1e22c8bea6de2086f?tab=teams",
-      },
-    ],
     description: "Asian Games qualifying tournament for Pokémon UNITE.",
     verificationStatus: "pending",
-    source: "Client-supplied profile + BattleXO / Challonge links",
+    source: "Client-supplied profile + Challonge bracket",
+  },
+  {
+    id: "iqoo-community-cup-bgmi",
+    name: "iQOO Community Cup Season 4",
+    game: "BGMI",
+    year: "2026",
+    result: "Round 1 — 11th Place",
+    role: "Competitor",
+    category: "esports",
+    officialLink: "https://www.battlexo.com/tournaments/69ca1ad1e22c8bea6de2086f?tab=teams",
+    description: "Season 4 of the iQOO Community Cup for BGMI.",
+    verificationStatus: "pending",
+    source: "Client-supplied profile + BattleXO tournament page",
   },
   {
     id: "puyo-puyo-global-ranking-2025",
@@ -147,11 +208,24 @@ export const events: EventRecord[] = [
         label: "The Bridge",
         url: "https://thebridge.in/esports/esfi-india-teams-brics-esports-championship-geg26-57220",
       },
+      {
+        label: "Tribune India",
+        url: "https://www.tribuneindia.com/news/brics-esports-championship/esfi-announces-indian-contingents-for-brics-esports-championship-global-esports-games",
+      },
+      {
+        label: "ThePrint",
+        url: "https://theprint.in/sport/esfi-announces-indian-contingents-for-brics-esports-championship-and-geg26/3009279/",
+      },
+      {
+        label: "PTI",
+        url: "https://www.ptinews.com/story/sports/ESFI-announces-Indian-contingents-for-BRICS-Esports-Championship-and-GEG26/3946715",
+      },
     ],
     description:
-      "ESFI (Esports Federation of India) announcement of the Indian contingent for the BRICS Esports Championship and Global Esports Games 2026.",
+      "ESFI (Esports Federation of India) announcement of the Indian contingent for the BRICS Esports Championship and Global Esports Games 2026. This is national-contingent announcement coverage rather than a personal profile piece — treated accordingly.",
     verificationStatus: "pending",
-    source: "News18 / Khel Now / Business Standard / The Bridge (ESFI announcement coverage)",
+    source:
+      "News18 / Khel Now / Business Standard / The Bridge / Tribune India / ThePrint / PTI (ESFI announcement coverage)",
   },
 ];
 

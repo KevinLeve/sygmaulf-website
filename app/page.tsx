@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Button, Card, Container, Eyebrow, SectionHeading } from "@/components/ui";
+import { Button, Container, Eyebrow, SectionHeading } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import CredibilityStrip from "@/components/CredibilityStrip";
+import PartnerLogoStrip from "@/components/PartnerLogoStrip";
+import PressSection from "@/components/PressSection";
 import { achievements } from "@/data/achievements";
 import { events } from "@/data/events";
 import { mediaItems } from "@/data/media";
 import { whatSygmaulfDoes } from "@/data/services";
 import EventCard from "@/components/EventCard";
+import AchievementCard from "@/components/AchievementCard";
 import MediaCard from "@/components/MediaCard";
 import { siteConfig } from "@/data/site";
 
@@ -17,13 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featuredWork = achievements.filter((a) => a.featured).slice(0, 3);
-  const featuredEvents = events.filter((e) => e.featured).slice(0, 2);
+  const featuredEvents = events.filter((e) => e.featured).slice(0, 3);
+  const competitiveCareer = achievements
+    .filter((a) => a.category === "competitive" && a.featured)
+    .slice(0, 6);
   const latestMedia = mediaItems.slice(0, 3);
+  const hasPress = achievements.some((a) => a.category === "press");
 
   return (
     <>
-      {/* Hero */}
+      {/* 01 — Hero */}
       <section className="relative overflow-hidden border-b border-line">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -left-1/4 top-0 h-[600px] w-[600px] rounded-full bg-accent/5 blur-3xl" />
@@ -38,7 +44,7 @@ export default function HomePage() {
         </div>
 
         <Container className="relative flex min-h-[86vh] flex-col justify-center py-24">
-          <Eyebrow>Gaming · Media · Community</Eyebrow>
+          <Eyebrow>Player · Creator · Host · Builder</Eyebrow>
           <h1 className="font-display mt-4 text-[16vw] font-extrabold uppercase leading-[0.85] tracking-tight sm:text-[10vw] lg:text-[8.5rem]">
             Sygmaulf
           </h1>
@@ -50,19 +56,23 @@ export default function HomePage() {
             with gaming audiences.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button href="/work-with-sygmaulf" variant="primary">
+            <Button href="/about#achievements" variant="primary">
+              Explore Career →
+            </Button>
+            <Button href="/work-with-sygmaulf" variant="outline">
               Work With Sygmaulf →
             </Button>
-            <Button href="/media" variant="outline">
-              Watch Content →
+            <Button href="/community" variant="ghost">
+              Explore Community →
             </Button>
           </div>
         </Container>
       </section>
 
+      {/* 02 — Proof / By The Numbers */}
       <CredibilityStrip />
 
-      {/* About preview */}
+      {/* 03 — Who Is Sygmaulf */}
       <section className="border-b border-line py-24">
         <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <ScrollReveal>
@@ -80,7 +90,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* What Sygmaulf does */}
+      {/* 04 — Capabilities */}
       <section className="border-b border-line py-24">
         <Container>
           <ScrollReveal>
@@ -104,7 +114,23 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Selected work / achievements */}
+      {/* 05 — Featured / Partnered / Worked With */}
+      <section className="border-b border-line py-24">
+        <Container>
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Featured / Partnered / Worked With"
+              title="Brands & Publishers"
+              description="Companies Sygmaulf has been featured by, partnered with, or worked with across creator and competitive gaming."
+            />
+          </ScrollReveal>
+          <ScrollReveal delay={100} className="mt-12">
+            <PartnerLogoStrip />
+          </ScrollReveal>
+        </Container>
+      </section>
+
+      {/* 06 — Selected Work */}
       <section className="border-b border-line py-24">
         <Container>
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -112,40 +138,51 @@ export default function HomePage() {
               <SectionHeading eyebrow="Track Record" title="Selected Work" />
             </ScrollReveal>
             <Link
-              href="/about#achievements"
+              href="/events"
               className="text-xs font-semibold uppercase tracking-wide text-accent hover:underline"
             >
-              All achievements →
+              All events →
             </Link>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {featuredWork.map((a, i) => (
-              <ScrollReveal key={a.id} delay={i * 80}>
-                <Card className="h-full">
-                  <span className="text-eyebrow text-ink-faint">
-                    {a.game ?? a.category}
-                    {a.year ? ` · ${a.year}` : ""}
-                  </span>
-                  <h3 className="font-display mt-3 text-2xl font-bold leading-tight">{a.title}</h3>
-                  <p className="mt-2 text-sm text-ink-dim">{a.description}</p>
-                </Card>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {featuredEvents.map((e, i) => (
+              <ScrollReveal key={e.id} delay={i * 80}>
+                <EventCard event={e} />
               </ScrollReveal>
             ))}
           </div>
-
-          {featuredEvents.length ? (
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {featuredEvents.map((e) => (
-                <ScrollReveal key={e.id}>
-                  <EventCard event={e} />
-                </ScrollReveal>
-              ))}
-            </div>
-          ) : null}
         </Container>
       </section>
 
-      {/* Latest media */}
+      {/* 07 — Competitive Career */}
+      <section id="competitive-career" className="border-b border-line py-24">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <ScrollReveal>
+              <SectionHeading
+                eyebrow="Competitive Career"
+                title="Results That Speak"
+                description="Rankings and placements as supplied and sourced — nothing embellished."
+              />
+            </ScrollReveal>
+            <Link
+              href="/about#achievements"
+              className="text-xs font-semibold uppercase tracking-wide text-accent hover:underline"
+            >
+              Full record →
+            </Link>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {competitiveCareer.map((a, i) => (
+              <ScrollReveal key={a.id} delay={i * 60}>
+                <AchievementCard achievement={a} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* 08 — Latest Media */}
       <section className="border-b border-line py-24">
         <Container>
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -169,7 +206,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Community CTA */}
+      {/* 09 — Community */}
       <section className="border-b border-line py-24">
         <Container className="flex flex-col items-start gap-8 border border-line bg-bg-raised p-10 sm:p-16 lg:flex-row lg:items-center lg:justify-between">
           <div>
@@ -187,7 +224,21 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Work with CTA */}
+      {/* 11 — Media / Press (only renders if a verified/pending press item exists) */}
+      {hasPress ? (
+        <section className="border-b border-line py-24">
+          <Container>
+            <ScrollReveal>
+              <SectionHeading eyebrow="Press & Features" title="In The Media" />
+            </ScrollReveal>
+            <ScrollReveal delay={100} className="mt-12">
+              <PressSection />
+            </ScrollReveal>
+          </Container>
+        </section>
+      ) : null}
+
+      {/* 13 — Final CTA */}
       <section className="py-24">
         <Container className="text-center">
           <Eyebrow>Let&apos;s Build Something</Eyebrow>

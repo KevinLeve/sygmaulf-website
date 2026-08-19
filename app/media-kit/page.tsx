@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Button, Card, Container, Eyebrow, SectionHeading, VerificationBadge } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
+import PartnerLogoStrip from "@/components/PartnerLogoStrip";
 import { shortBio, longBio } from "@/data/bio";
 import { credibilityStats } from "@/data/stats";
 import { platforms } from "@/data/platforms";
@@ -108,6 +109,17 @@ export default function MediaKitPage() {
             <span className="border border-line-soft px-4 py-2 text-sm text-ink-faint">
               and other titles
             </span>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-line py-20">
+        <Container>
+          <ScrollReveal>
+            <SectionHeading eyebrow="Featured / Partnered / Worked With" title="Brands & Publishers" />
+          </ScrollReveal>
+          <div className="mt-8">
+            <PartnerLogoStrip />
           </div>
         </Container>
       </section>

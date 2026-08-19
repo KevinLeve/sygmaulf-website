@@ -16,6 +16,11 @@ export default function AchievementCard({ achievement }: { achievement: Achievem
           {achievement.title}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-ink-dim">{achievement.description}</p>
+        {achievement.team ? (
+          <p className="font-mono mt-2 text-xs uppercase tracking-wide text-accent">
+            Team: {achievement.team}
+          </p>
+        ) : null}
       </div>
       {achievement.url ? (
         <a
@@ -24,7 +29,7 @@ export default function AchievementCard({ achievement }: { achievement: Achievem
           rel="noopener noreferrer"
           className="mt-5 inline-flex w-fit items-center gap-1 text-xs font-semibold uppercase tracking-wide text-accent hover:underline"
         >
-          View Source →
+          {achievement.urlLabel ?? "View Source"} →
         </a>
       ) : (
         <span className="font-mono mt-5 block text-[0.65rem] text-ink-faint">

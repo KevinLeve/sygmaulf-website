@@ -7,40 +7,42 @@ export interface Stat {
   verificationStatus: VerificationStatus;
 }
 
-// No subscriber/follower/view counts were supplied, so every stat below
-// uses a non-numeric label rather than an invented number, per the
-// client's content-safety rule. Swap `value` for a real figure (e.g.
-// "25K+") only once it has been supplied and verified — update
-// verificationStatus to "verified" at the same time.
+// These five figures were explicitly supplied by Sygmaulf as "By The
+// Numbers" content (source: client fact sheet, Aug 2026). They are
+// reproduced exactly as given — do not alter them without an updated
+// source. verificationStatus is "pending" because they're client-supplied
+// self-reported figures rather than independently verified against a
+// public API or document (e.g. Twitch subscriber counts aren't publicly
+// auditable the way a tournament bracket is).
 export const credibilityStats: Stat[] = [
   {
-    id: "community",
-    value: "INDIA",
-    label: "Gaming Community",
-    verificationStatus: "verified",
-  },
-  {
-    id: "partnerships",
-    value: "GLOBAL",
-    label: "Creator Partnerships",
+    id: "twitch-subscribers",
+    value: "25K+",
+    label: "Twitch Subscribers",
     verificationStatus: "pending",
   },
   {
-    id: "esports",
-    value: "COMPETITIVE",
-    label: "Esports Background",
-    verificationStatus: "verified",
+    id: "codm-india-2025",
+    value: "#12",
+    label: "CODM India — 2025",
+    verificationStatus: "pending",
   },
   {
-    id: "multi-game",
-    value: "MULTI-GAME",
-    label: "Gaming Creator",
-    verificationStatus: "verified",
-  },
-  {
-    id: "titles",
+    id: "competitive-titles",
     value: "10+",
-    label: "Competitive Titles Played",
-    verificationStatus: "verified",
+    label: "Competitive Titles",
+    verificationStatus: "pending",
+  },
+  {
+    id: "events-activations",
+    value: "50+",
+    label: "Events / Activations",
+    verificationStatus: "pending",
+  },
+  {
+    id: "brand-partnerships",
+    value: "6+",
+    label: "Brand Partnerships",
+    verificationStatus: "pending",
   },
 ];
