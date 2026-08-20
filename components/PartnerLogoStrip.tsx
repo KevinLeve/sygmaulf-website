@@ -7,9 +7,9 @@ export default function PartnerLogoStrip() {
         {partners.map((partner) => (
           <div
             key={partner.id}
-            className="flex h-24 items-center justify-center px-4 text-center transition-colors hover:bg-bg-raised-2 sm:h-28"
+            className="flex h-24 items-center justify-center px-3 text-center transition-colors hover:bg-bg-raised-2 sm:h-28"
           >
-            <span className="font-display text-lg font-bold uppercase tracking-tight text-ink-dim sm:text-xl">
+            <span className="font-display text-base font-bold uppercase leading-tight tracking-tight text-ink-dim sm:text-lg">
               {partner.name}
             </span>
           </div>

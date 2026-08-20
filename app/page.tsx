@@ -71,13 +71,22 @@ export default function HomePage() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden border border-line lg:max-w-none">
+            <div
+              className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none"
+              style={{
+                maskImage:
+                  "radial-gradient(ellipse 72% 78% at 50% 42%, black 45%, transparent 88%)",
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 72% 78% at 50% 42%, black 45%, transparent 88%)",
+              }}
+            >
               <Image
                 src="/images/personal/sygmaulf-hero-portrait.jpg"
                 alt="Sygmaulf, Indian gaming creator and esports competitor, studio portrait"
                 fill
                 priority
                 className="object-cover"
+                style={{ filter: "saturate(0.85) contrast(1.05) brightness(0.94)" }}
                 sizes="(max-width: 1024px) 90vw, 45vw"
               />
             </div>

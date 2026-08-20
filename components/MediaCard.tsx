@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, VerificationBadge } from "@/components/ui";
 import type { MediaItem } from "@/data/media";
 
@@ -6,8 +7,22 @@ export default function MediaCard({ item }: { item: MediaItem }) {
 
   return (
     <Card className="flex h-full flex-col gap-4">
-      <div className="flex aspect-video items-center justify-center border border-line-soft bg-bg-raised-2">
-        {isPlaceholder ? (
+      <div className="relative flex aspect-video items-center justify-center overflow-hidden border border-line-soft bg-bg-raised-2">
+        {item.youtubeId ? (
+          <>
+            <Image
+              src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
+              alt={item.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              unoptimized
+            />
+            <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-bg/70 text-accent backdrop-blur-sm">
+              ▶
+            </span>
+          </>
+        ) : isPlaceholder ? (
           <span className="text-eyebrow text-ink-faint">Coming Soon</span>
         ) : (
           <span className="text-eyebrow text-accent">▶ {item.platform}</span>

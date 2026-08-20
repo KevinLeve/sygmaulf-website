@@ -40,7 +40,6 @@ export const events: EventRecord[] = [
     description: "India Qualifier for Clash Royale — finished as second runner-up.",
     verificationStatus: "pending",
     source: "Client fact sheet (Aug 2026) + Toornament participant page",
-    featured: true,
   },
   {
     id: "wcs-2026-india-qualifiers",
@@ -64,7 +63,6 @@ export const events: EventRecord[] = [
     imageAlt: "Pokémon UNITE Championship Series logo",
     verificationStatus: "verified",
     source: "WCS_2026_India_Qualifiers.pdf",
-    featured: true,
   },
   {
     id: "hok-kings-arise-bengaluru-2026",
@@ -82,7 +80,6 @@ export const events: EventRecord[] = [
     imageAlt: "Honor of Kings: Kings' Arise India City Tour logo",
     verificationStatus: "verified",
     source: "HOK_Kings_Arise_Bengaluru.pdf",
-    featured: true,
   },
   {
     id: "hok-kings-arise-mumbai-2026",
@@ -132,6 +129,7 @@ export const events: EventRecord[] = [
     imageAlt: "Tamil Nadu Chief Minister's Trophy 2025 logo",
     verificationStatus: "pending",
     source: "Client fact sheet (Aug 2026) + Toornament participant page",
+    featured: true,
   },
   {
     id: "brawl-stars-challengers-south-asia",
@@ -176,6 +174,7 @@ export const events: EventRecord[] = [
     imageAlt: "NESC 2026, 20th Asian Games Aichi-Nagoya 2026 logo",
     verificationStatus: "pending",
     source: "Client-supplied profile + Challonge bracket",
+    featured: true,
   },
   {
     id: "iqoo-community-cup-bgmi",
@@ -250,6 +249,7 @@ export const events: EventRecord[] = [
     verificationStatus: "pending",
     source:
       "News18 / Khel Now / Business Standard / The Bridge / Tribune India / ThePrint / PTI (ESFI announcement coverage)",
+    featured: true,
   },
 ];
 

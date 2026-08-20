@@ -1,12 +1,6 @@
 import type { VerificationStatus } from "./site";
 
-export type MediaCategory =
-  | "videos"
-  | "shorts"
-  | "streams"
-  | "esports"
-  | "podcast"
-  | "events";
+export type MediaCategory = "videos" | "streams" | "esports" | "podcast" | "events";
 
 export interface MediaItem {
   id: string;
@@ -15,17 +9,18 @@ export interface MediaItem {
   date?: string;
   category: MediaCategory;
   url: string | null;
+  youtubeId?: string;
   description: string;
   verificationStatus: VerificationStatus;
   featured?: boolean;
 }
 
-// No individual video/short/stream URLs were supplied in the brief, so the
-// Media page is seeded with the one verified, embeddable content source
-// (GGEZ) plus clearly-marked placeholder slots for the content types the
-// design calls for (1 video, 3 shorts, 1 livestream). Replace the
-// placeholders with real links/embeds as they're supplied — do not invent
-// titles, view counts, or dates.
+// Shorts were removed at the client's request (Aug 2026) — do not
+// reintroduce a "shorts" category or placeholder without new instruction.
+// The featured video below was supplied directly by the client as the
+// highest-viewed video to lead with. Do not invent titles, view counts,
+// or dates for anything else here — placeholders stay null until real
+// links are supplied.
 export const mediaItems: MediaItem[] = [
   {
     id: "ggez-podcast",
@@ -38,40 +33,15 @@ export const mediaItems: MediaItem[] = [
     featured: true,
   },
   {
-    id: "featured-video-placeholder",
-    title: "Featured video — coming soon",
+    id: "hercules-psx-walkthrough",
+    title: "Hercules (PSX / PS1) Gameplay Walkthrough — No Commentary",
     platform: "YouTube",
     category: "videos",
-    url: null,
-    description: "Reserved slot for the featured long-form video embed.",
-    verificationStatus: "placeholder",
-  },
-  {
-    id: "short-1-placeholder",
-    title: "Short — coming soon",
-    platform: "YouTube Shorts / Reels",
-    category: "shorts",
-    url: null,
-    description: "Reserved slot for a short-form clip.",
-    verificationStatus: "placeholder",
-  },
-  {
-    id: "short-2-placeholder",
-    title: "Short — coming soon",
-    platform: "YouTube Shorts / Reels",
-    category: "shorts",
-    url: null,
-    description: "Reserved slot for a short-form clip.",
-    verificationStatus: "placeholder",
-  },
-  {
-    id: "short-3-placeholder",
-    title: "Short — coming soon",
-    platform: "YouTube Shorts / Reels",
-    category: "shorts",
-    url: null,
-    description: "Reserved slot for a short-form clip.",
-    verificationStatus: "placeholder",
+    url: "https://youtu.be/FFJK0L-yT9k?si=b8bytSorSkZ28exs",
+    youtubeId: "FFJK0L-yT9k",
+    description: "Full gameplay walkthrough, no commentary. The channel's highest-viewed video — client-selected as the featured video.",
+    verificationStatus: "verified",
+    featured: true,
   },
   {
     id: "livestream-placeholder",
@@ -87,7 +57,6 @@ export const mediaItems: MediaItem[] = [
 export const mediaFilters: { label: string; value: MediaCategory | "all" }[] = [
   { label: "All", value: "all" },
   { label: "Videos", value: "videos" },
-  { label: "Shorts", value: "shorts" },
   { label: "Streams", value: "streams" },
   { label: "Esports", value: "esports" },
   { label: "Podcast", value: "podcast" },

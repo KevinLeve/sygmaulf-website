@@ -21,4 +21,8 @@ export const partners: Partner[] = [
   { id: "rockit", name: "Rockit", verificationStatus: "pending" },
   { id: "playstation", name: "PlayStation", verificationStatus: "pending" },
   { id: "activision", name: "Activision", verificationStatus: "pending" },
+  { id: "esfi", name: "ESFI", verificationStatus: "pending" },
+  { id: "chennai-anime-club", name: "Chennai Anime Club", verificationStatus: "pending" },
+  { id: "ff-max-community", name: "FF Max Community", verificationStatus: "pending" },
+  { id: "meai", name: "MEAI", verificationStatus: "pending" },
 ];
